@@ -1,0 +1,233 @@
+
+.google-layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #dadce0;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+    z-index: 10;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 1px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #3c4043;
+    font-weight: 500;
+  }
+  
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #dadce0;
+  }
+  
+ 
+  .google-main-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+
+  .google-sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #dadce0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .google-sidebar button {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3c4043;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    margin-right: 15px;
+    transition: all 0.2s ease;
+  }
+  
+  .google-sidebar button:hover {
+    background-color: #f1f3f4;
+  }
+  
+  .google-sidebar button.active {
+    background-color: #ffebee;
+    color: #FF4B2B;
+    font-weight: bold;
+  }
+  
+  .google-sidebar button.logout-btn {
+    color: #d93025;
+    margin-top: auto;
+  }
+  
+
+  .google-content-area {
+    flex: 1;
+    padding: 25px 40px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+ 
+  .control-panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .selector-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .selector-container select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    min-width: 250px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+  
+  .divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 5px 0;
+  }
+  
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .time-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .digital-time {
+    font-size: 24px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #FF4B2B;
+    background: #fff0ed;
+    padding: 5px 12px;
+    border-radius: 6px;
+  }
+  
+  input[type=range] {
+    width: 100%;
+    cursor: pointer;
+    height: 6px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    appearance: none;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FF4B2B;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  
+  input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .btn-reset {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  
+  .btn-reset:hover {
+    background-color: #000;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+ 
+  .visualizer-display {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .placeholder-visualizer {
+    text-align: center;
+    color: #888;
+  }
+  
+  .placeholder-visualizer h2 {
+    color: #444;
+    margin-bottom: 10px;
+  }

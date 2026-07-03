@@ -1,0 +1,65 @@
+<div class="google-layout-container">
+  
+ 
+  <nav class="navbar">
+    <div class="logo">TimeVis</div>
+    <div class="user-info">
+      <span>Hola, Admin</span>
+    </div>
+  </nav>
+
+  <div class="google-main-body">
+    
+    <aside class="google-sidebar">
+      <div class="menu-title" style="padding: 10px 24px; color: #888; font-size: 12px; text-transform: uppercase; font-weight: bold;">
+        Visualizaciones
+      </div>
+      
+      <button [class.active]="visualizadorActivo === 'vela'" (click)="setVisualizador('vela')"> Vela</button>
+      <button [class.active]="visualizadorActivo === 'arena'" (click)="setVisualizador('arena')"> Reloj de Arena</button>
+      <button [class.active]="visualizadorActivo === 'barra'" (click)="setVisualizador('barra')"> Barra </button>
+      
+      <button (click)="logout()" class="logout-btn">Salir</button>
+    </aside>
+
+    
+    <main class="google-content-area">
+      <div class="visualizer-display">
+        
+        
+        <div class="time-header-overlay">
+          <h2 class="reloj-digital">
+            {{ tiempoActual?.hours | number:'2.0' }}:{{ tiempoActual?.minutes | number:'2.0' }}:{{ tiempoActual?.seconds | number:'2.0' }}
+          </h2>
+          <div class="slider-group">
+            <input 
+              type="range" 
+              min="0" 
+              max="86399" 
+              [value]="sliderValue" 
+              (input)="onSliderChange($event)" 
+              title="Arrastra para mover el tiempo"
+            >
+            <button class="btn-reset" *ngIf="tiempoActual?.isDemo" (click)="resetTime()">
+              Volver al tiempo real
+            </button>
+          </div>
+        </div>
+
+       
+        @switch (visualizadorActivo) {
+          @case ('vela') {
+            <app-vela></app-vela>
+          }
+          @case ('arena') {
+            <app-reloj-arena></app-reloj-arena>
+          }
+          @case ('barra') {
+            <app-barra-dia></app-barra-dia>
+          }
+        }
+
+      </div>
+    </main>
+  </div>
+</div>
