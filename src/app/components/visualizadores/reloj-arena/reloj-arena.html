@@ -1,0 +1,18 @@
+<div class="escenario-arena">
+  <div class="reloj-cristal">
+    
+    <div class="bulbo superior">
+      <div class="arena" [style.height.%]="100 - porcentajePasado"></div>
+    </div>
+    
+    
+    <div class="cuello">
+      <div class="arena-cayendo" *ngIf="porcentajePasado > 0 && porcentajePasado < 100"></div>
+    </div>
+
+    
+    <div class="bulbo inferior">
+      <div class="arena" [style.height.%]="porcentajePasado"></div>
+    </div>
+  </div>
+</div>
