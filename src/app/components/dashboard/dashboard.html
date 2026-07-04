@@ -1,63 +1,74 @@
 <div class="google-layout-container">
   
- 
   <nav class="navbar">
-    <div class="logo">TimeVis</div>
+    <div class="logo"> Visualizador-tiempo <span class="badge">by eldi</span></div>
     <div class="user-info">
-      <span>Hola, Admin</span>
+      <span>Hola, Usuario</span>
     </div>
   </nav>
 
   <div class="google-main-body">
     
+    
     <aside class="google-sidebar">
-      <div class="menu-title" style="padding: 10px 24px; color: #888; font-size: 12px; text-transform: uppercase; font-weight: bold;">
-        Visualizaciones
-      </div>
-      
+      <div class="menu-title">vistas</div>
       <button [class.active]="visualizadorActivo === 'vela'" (click)="setVisualizador('vela')"> Vela</button>
       <button [class.active]="visualizadorActivo === 'arena'" (click)="setVisualizador('arena')"> Reloj de Arena</button>
-      <button [class.active]="visualizadorActivo === 'barra'" (click)="setVisualizador('barra')"> Barra </button>
+      <button [class.active]="visualizadorActivo === 'barra'" (click)="setVisualizador('barra')"> Barra de Progreso</button>
+      <button [class.active]="visualizadorActivo === 'solar'" (click)="setVisualizador('solar')"> Sistema Solar</button>
+      <button [class.active]="visualizadorActivo === 'lunar'" (click)="setVisualizador('lunar')"> Ciclo Lunar</button>
+      <button [class.active]="visualizadorActivo === 'planta'" (click)="setVisualizador('planta')">Ciclo Botánico</button>
+      <button [class.active]="visualizadorActivo === 'pendulo'" (click)="setVisualizador('pendulo')"> Péndulo</button>
+      <button [class.active]="visualizadorActivo === 'clepsidra'" (click)="setVisualizador('clepsidra')"> Clepsidra</button>
+      <button [class.active]="visualizadorActivo === 'fractal'" (click)="setVisualizador('fractal')"> Árbol Fractal</button>
+      <button [class.active]="visualizadorActivo === 'matriz'" (click)="setVisualizador('matriz')"> Matriz Píxeles</button>
       
-      <button (click)="logout()" class="logout-btn">Salir</button>
+      <button (click)="logout()" class="logout-btn"> Salir</button>
     </aside>
 
-    
     <main class="google-content-area">
       <div class="visualizer-display">
         
-        
-        <div class="time-header-overlay">
+        <div class="time-header-overlay glass-effect">
+         
           <h2 class="reloj-digital">
-            {{ tiempoActual?.hours | number:'2.0' }}:{{ tiempoActual?.minutes | number:'2.0' }}:{{ tiempoActual?.seconds | number:'2.0' }}
+           {{ tiempoActual?.hours | number:'2.0' }}:{{ tiempoActual?.minutes | number:'2.0' }}:{{ tiempoActual?.seconds | number:'2.0' }}<span class="milisegundos">.{{ (tiempoActual?.milliseconds / 10) | number:'2.0-0' }}</span>
           </h2>
-          <div class="slider-group">
-            <input 
-              type="range" 
-              min="0" 
-              max="86399" 
-              [value]="sliderValue" 
-              (input)="onSliderChange($event)" 
-              title="Arrastra para mover el tiempo"
-            >
+          <div class="slider-group">    
+          <input 
+          type="range" 
+          class="pro-slider"
+          min="0" 
+          max="86399" 
+          [value]="sliderValue" 
+          (input)="onSliderInput($event)" 
+         (change)="onSliderChange($event)"
+        (mousedown)="isDragging = true"
+         (mouseup)="isDragging = false"
+        (touchstart)="isDragging = true"
+        (touchend)="isDragging = false"
+         title="Arrastra para simular el tiempo"
+>
             <button class="btn-reset" *ngIf="tiempoActual?.isDemo" (click)="resetTime()">
-              Volver al tiempo real
+              Sincronizar Real
             </button>
           </div>
         </div>
 
-       
-        @switch (visualizadorActivo) {
-          @case ('vela') {
-            <app-vela></app-vela>
+        <div class="component-wrapper">
+          @switch (visualizadorActivo) {
+            @case ('vela') { <app-vela></app-vela> }
+            @case ('arena') { <app-reloj-arena></app-reloj-arena> }
+            @case ('barra') { <app-barra-dia></app-barra-dia> }
+            @case ('solar') { <app-sistema-solar></app-sistema-solar> }
+            @case ('lunar') { <app-ciclo-lunar></app-ciclo-lunar> }
+            @case ('planta') { <app-planta></app-planta> }
+            @case ('pendulo') { <app-pendulo></app-pendulo> }
+            @case ('clepsidra') { <app-clepsidra></app-clepsidra> }
+            @case ('fractal') { <app-fractal></app-fractal> }
+            @case ('matriz') { <app-matriz-pixeles></app-matriz-pixeles> }
           }
-          @case ('arena') {
-            <app-reloj-arena></app-reloj-arena>
-          }
-          @case ('barra') {
-            <app-barra-dia></app-barra-dia>
-          }
-        }
+        </div>
 
       </div>
     </main>
