@@ -1,0 +1,121 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.universo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+}
+
+.espacio-estrellas {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 40px 70px, #ffffff, transparent),
+    radial-gradient(2px 2px at 90px 40px, #ffffff, transparent),
+    radial-gradient(1px 1px at 160px 120px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.3;
+}
+
+.sol {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffebb7 0%, #ffc107 40%, #ff8c00 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 140, 0, 0.6), 0 0 100px rgba(255, 193, 7, 0.4);
+  z-index: 10;
+}
+
+.orbita {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+ 
+}
+
+.orbita-tierra {
+  width: 200px;
+  height: 200px;
+  z-index: 20;
+}
+.tierra {
+  position: absolute;
+  top: -12px; 
+  left: 50%;
+  margin-left: -12px; 
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #4dabf7, #1864ab);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(77, 171, 247, 0.5);
+}
+
+.orbita-luna {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border: 1px dotted rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+.luna {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+.orbita-cometa {
+  width: 340px;
+  height: 340px;
+  z-index: 30;
+  border-color: rgba(255, 107, 107, 0.2);
+}
+.cometa {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  margin-left: -6px;
+  width: 12px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ff6b6b;
+}
+
+.info-texto {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #868e96;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  z-index: 40;
+}

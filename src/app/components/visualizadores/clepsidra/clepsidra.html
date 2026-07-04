@@ -1,0 +1,16 @@
+<div class="escenario-clepsidra">
+  <div class="estructura-madera">
+   
+    <div class="vasija superior">
+      <div class="agua" [style.height.%]="100 - porcentaje"></div>
+    </div>
+    
+    
+    <div class="caida-agua" *ngIf="porcentaje > 0 && porcentaje < 100"></div>
+
+    <
+    <div class="vasija inferior">
+      <div class="agua" [style.height.%]="porcentaje"></div>
+    </div>
+  </div>
+</div>

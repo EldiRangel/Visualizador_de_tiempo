@@ -1,0 +1,10 @@
+<div class="escenario-matriz">
+  <div class="grid-matriz">
+    @for (activo of pixeles; track $index) {
+      <div class="pixel" [class.encendido]="activo"></div>
+    }
+  </div>
+  <div class="datos-matriz">
+    SYS.LOAD: {{ porcentaje | number:'1.2-2' }}%
+  </div>
+</div>

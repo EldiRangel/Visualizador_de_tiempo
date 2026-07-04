@@ -1,0 +1,24 @@
+<div class="escenario-pendulos">
+  
+    <div class="medidor-grupo">
+      <div class="medidor">
+        <div class="dial"></div>
+        <div class="aguja horas" [ngStyle]="{'transform': 'rotate(' + anguloHoras + 'deg)'}"></div>
+        <span class="etiqueta">Horas</span>
+      </div>
+  
+      <div class="medidor">
+        <div class="dial"></div>
+        <div class="aguja minutos" [ngStyle]="{'transform': 'rotate(' + anguloMinutos + 'deg)'}"></div>
+        <span class="etiqueta">Minutos</span>
+      </div>
+  
+      <div class="medidor">
+        <div class="dial"></div>
+        <div class="aguja segundos" [ngStyle]="{'transform': 'rotate(' + anguloSegundos + 'deg)'}"></div>
+        <span class="etiqueta">Segundos</span>
+      </div>
+    </div>
+  
+    
+  </div>

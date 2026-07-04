@@ -1,0 +1,12 @@
+<div class="escenario-lunar">
+  <div class="espacio-estrellas"></div>
+  
+  <div class="contenedor-luna">
+   
+    <div class="luna-base"></div>
+    
+    <div class="luna-sombra" [style.transform]="'translateX(' + fase + '%)'"></div>
+  </div>
+
+  <div class="fase-texto">{{ nombreFase }}</div>
+</div>

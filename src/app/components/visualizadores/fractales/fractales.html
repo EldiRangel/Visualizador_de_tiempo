@@ -1,0 +1,15 @@
+<div class="escenario-fractal">
+  <svg width="500" height="400" viewBox="0 0 500 400" class="svg-fractal">
+    
+    @for (linea of lineas; track linea) {
+      <line 
+        [attr.x1]="linea.x1" [attr.y1]="linea.y1" 
+        [attr.x2]="linea.x2" [attr.y2]="linea.y2" 
+        [attr.stroke]="linea.color" 
+        [attr.stroke-width]="linea.width"
+        stroke-linecap="round" 
+      />
+    }
+  </svg>
+ 
+</div>
