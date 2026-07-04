@@ -1,44 +1,74 @@
 <div class="body-login">
- 
-    <div class="container" [ngClass]="{'active': isActive}" id="container">
-      
-      
-      <div class="form-container sign-up">
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-          <h1>Crear Cuenta</h1>
-          <span>o usa tu correo para registrarte</span>
-          <input type="text" formControlName="nombre" placeholder="Nombre Completo" required />
-          <input type="email" formControlName="email" placeholder="Correo Electrónico" required />
-          <input type="password" formControlName="password" placeholder="Contraseña" required />
-          <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
-        </form>
-      </div>
-  
-      
-      <div class="form-container sign-in">
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-          <h1>Iniciar Sesión</h1>
-          <span>ingresa tus credenciales de acceso</span>
-          <input type="email" formControlName="email" placeholder="Email (admin@correo.com)" required />
-          <input type="password" formControlName="password" placeholder="Password (1234)" required />
-          <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
-        </form>
-      </div>
-  
-      
-      <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>¡Bienvenido de vuelta!</h1>
-            <p>Para mantenerte conectado, por favor inicia sesión con tus datos personales</p>
-            <button class="hidden" (click)="toggleView(false)">Iniciar Sesión</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>¡Hola, Amigo!</h1>
-            <p>Registrate para ver nuestras locuras con el tiempo</p>
-            <button class="hidden" (click)="toggleView(true)">Registrarse</button>
-          </div>
+  <div class="container" [ngClass]="{'active': isActive}" id="container">
+    
+    <!-- Panel de Registro -->
+    <div class="form-container sign-up">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <h1>Crear Cuenta</h1>
+        <span>o usa tu correo para registrarte</span>
+        <input 
+          type="text" 
+          formControlName="nombre" 
+          placeholder="Nombre Completo" 
+          required 
+          maxlength="16" 
+          (keydown)="sinEspacios($event)" 
+        />
+        <input 
+          type="email" 
+          formControlName="email" 
+          placeholder="Correo Electrónico" 
+          required 
+        />
+        <input 
+          type="password" 
+          formControlName="password" 
+          placeholder="Contraseña" 
+          required 
+          maxlength="16" 
+          (keydown)="sinEspacios($event)" 
+        />
+        <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+      </form>
+    </div>
+
+    <!-- Panel de Login -->
+    <div class="form-container sign-in">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <h1>Iniciar Sesion</h1>
+        <span>ingresa tus credenciales de acceso</span>
+        <input 
+          type="email" 
+          formControlName="email" 
+          placeholder="Email (admin@correo.com)" 
+          required 
+        />
+        <input 
+          type="password" 
+          formControlName="password" 
+          placeholder="Password (1234)" 
+          required 
+          maxlength="16" 
+          (keydown)="sinEspacios($event)" 
+        />
+        <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+      </form>
+    </div>
+
+   
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>¡Bienvenido de vuelta!</h1>
+          <p>Para mantenerte conectado, por favor inicia sesion con tus datos personales</p>
+          <button class="hidden" (click)="toggleView(false)">Iniciar Sesión</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>¡Hola, Amigo!</h1>
+          <p>Registrate para ver nuestras locuras con el tiempo</p>
+          <button class="hidden" (click)="toggleView(true)">Registrarse</button>
         </div>
       </div>
     </div>
   </div>
+</div>

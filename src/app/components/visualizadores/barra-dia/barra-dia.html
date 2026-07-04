@@ -1,0 +1,19 @@
+<div class="escenario-barra">
+  <div class="track-container">
+   
+    <div class="track-gradient"></div>
+    
+   
+    <div class="marcas">
+      <div class="marca" style="left: 25%"></div>
+      <div class="marca" style="left: 50%"></div>
+      <div class="marca" style="left: 75%"></div>
+    </div>
+    
+    
+    <div class="indicador" [style.left.%]="porcentajePasado">
+      <div class="icono-astro" [ngClass]="{'luna': porcentajePasado < 25 || porcentajePasado > 75, 'sol': porcentajePasado >= 25 && porcentajePasado <= 75}"></div>
+      <div class="linea-guia"></div>
+    </div>
+  </div>
+</div>

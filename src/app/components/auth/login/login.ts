@@ -16,15 +16,16 @@ export class LoginComponent {
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
+    
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.maxLength(16)]]
     });
 
     this.registerForm = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.maxLength(16)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.maxLength(16)]]
     });
   }
 
@@ -32,21 +33,24 @@ export class LoginComponent {
     this.isActive = isSignUp;
   }
 
+  
+  sinEspacios(event: KeyboardEvent) {
+    if (event.key === ' ') {
+      event.preventDefault();
+    }
+  }
+
   onLogin() {
     if (this.loginForm.valid) {
       const { email } = this.loginForm.value;
       
-      
       const usuarioMock = {
         nombre: email.split('@')[0], 
         email: email,
-        foto: 'https://api.dicebear.com/7.x/bottts/svg?seed=Felix' // Avatar por defecto
+        foto: 'https://api.dicebear.com/7.x/bottts/svg?seed=Felix' 
       };
-
       
       localStorage.setItem('sesion_activa', JSON.stringify(usuarioMock));
-      
-      
       this.router.navigate(['/dashboard']);
     }
   }
@@ -60,11 +64,8 @@ export class LoginComponent {
         email: email,
         foto: 'https://api.dicebear.com/7.x/bottts/svg?seed=Felix'
       };
-
       
       localStorage.setItem('sesion_activa', JSON.stringify(usuarioMock));
-      
-      
       this.router.navigate(['/dashboard']);
     }
   }
